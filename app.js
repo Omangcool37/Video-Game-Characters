@@ -1,5 +1,5 @@
 /**
- * name, alias, powers [], franchise, team [], alignment bool, rivals [], species
+ * name, alias, powers [], franchise, team [], alignment bool, enemies [], species
  */
 
 const VideoGameCharacters = [
@@ -11,8 +11,8 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        rivals: ['vergil sparda', 'mundus', 'nightmare', 'griffon'],
-        species: 'hybrid',
+        enimies: ['vergil sparda', 'mundus', 'nightmare', 'griffon'],
+        race: 'hybrid',
         firstApp: new Date('August 23, 2001')
     },
     {
@@ -23,7 +23,7 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        rivals: ['dante sparda', 'mundus', 'griffon', 'nightmare'],
+        enimies: ['dante sparda', 'mundus', 'griffon', 'nightmare'],
         species: 'hybrid',
         firstApp: new Date('August 23, 2001')
     },
@@ -35,8 +35,8 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        rivals: ['dante sparda', 'mundus', 'griffon', 'nightmare', 'vergil sparda'],
-        species: 'hybrid',
+        enimies: ['dante sparda', 'mundus', 'griffon', 'nightmare', 'vergil sparda'],
+        race: 'hybrid',
         firstApp: new Date('January 31, 2008')
     },
     {
@@ -47,8 +47,8 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        rivals: ['hive','scorn','taken','the vex', 'dread', 'the witness'],
-        species: 'human',
+        enimies: ['hive','scorn','taken','the vex', 'dread', 'the witness'],
+        race: 'human',
         firstApp: new Date('September 9, 2014')
     },
     {
@@ -59,8 +59,8 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        rivals: ['hive', 'scorn','taken', 'the vex', 'dread', 'the witness'],
-        species: 'human',
+        enimies: ['hive', 'scorn','taken', 'the vex', 'dread', 'the witness'],
+        race: 'human',
         firstApp: new Date('September 9, 2014')
     },
     {
@@ -71,8 +71,8 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        rivals: ['hive', 'scorn','taken','the vex', 'dread', 'the witness'],
-        species: 'human',
+        enimies: ['hive', 'scorn','taken','the vex', 'dread', 'the witness'],
+        race: 'human',
         firstApp: new Date('September 9, 2014')
         
     },
@@ -84,8 +84,8 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        rivals: ['the templar order'],
-        species: 'human',
+        enimies: ['the templar order'],
+        race: 'human',
         firstApp: new Date('December 4, 2012')
     },
     {
@@ -96,8 +96,8 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        rivals: ['the templar order'],
-        species: 'human',
+        enimies: ['the templar order'],
+        race: 'human',
         firstApp: new Date('November 13, 2007')
     },
     {
@@ -108,8 +108,8 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        rivals: ['the templar order'],
-        species: 'human',
+        enimies: ['the templar order'],
+        race: 'human',
         firstApp: new Date('October 26, 2009')
     },
     {
@@ -120,8 +120,8 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['the nine realms'],
         alignment: true,
-        rivals: ['zeus', 'ares','poseidon', 'apollo', 'hades' ],
-        species: 'god',
+        enimies: ['zeus', 'ares','poseidon', 'apollo', 'hades' ],
+        race: 'god',
         firstApp: new Date('March 22, 2005')
     },
     {
@@ -132,8 +132,8 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['the nine realms'],
         alignment: true,
-        rivals: ['heimdoll','dragur','dark elves'],
-        species: 'god',
+        enimies: ['heimdoll','dragur','dark elves'],
+        race: 'god',
         firstApp: new Date('April 20, 2018')
     },
     {
@@ -144,8 +144,8 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['asgard'],
         alignment: true,
-        rivals: ['freya', 'kratos','jotnar'],
-        species: 'god',
+        enimies: ['freya', 'kratos','jotnar'],
+        race: 'god',
         firstApp: new Date('April 20, 2018')
     },
    
@@ -225,15 +225,15 @@ const buildCards =(obj)=> {
         makeList(teamsList, obj.team)
     }
 
-    const rivalsLabel = document.createElement('h3')
-    rivalsLabel.classList.add('text-capitalize', 'text-primary')
-    rivalsLabel.innerText = 'rivals'
+    const enimiesLabel = document.createElement('h3')
+    enimiesLabel.classList.add('text-capitalize', 'text-primary')
+    enimiesLabel.innerText = 'enimies'
 
-    const rivalsList = document.createElement('ul')
-    rivalsList.classList.add('list-group', 'list-group-flush')
+    const enimiesList = document.createElement('ul')
+    enimiesList.classList.add('list-group', 'list-group-flush')
 
-    if (typeof(obj.rivals) === 'object') {
-        makeList(rivalsList, obj.rivals)
+    if (typeof(obj.enimies) === 'object') {
+        makeList(enimiesList, obj.eniemies)
     }
 
    
@@ -241,12 +241,12 @@ const buildCards =(obj)=> {
     cardFooter.classList.add('card-footer')
 
     cardFooter.innerHTML = `
-        <p class="card-text">Species: ${obj.species}</p>
+        <p class="card-text">Race: ${obj.Race}</p>
         <p class="card-text">Franchise: ${obj.franchise}</p>
         <p class="card-text">First App: ${obj.firstApp.getMonth() +1 }/${obj.firstApp.getFullYear()}</p`
 
     cardHeader.appendChild(alias)
-    cardHeader.appendChild(heroName)
+    cardHeader.appendChild(videocharacterName)
    
     card.appendChild(cardHeader)
 
@@ -256,8 +256,8 @@ const buildCards =(obj)=> {
     cardBody.appendChild(teamsLabel)
     cardBody.appendChild(teamsList)
 
-    cardBody.appendChild(rivalsLabel)
-    cardBody.appendChild(rivalsList)
+    cardBody.appendChild(enimiesLabel)
+    cardBody.appendChild(enimiesList)
 
     card.appendChild(cardBody)
     card.appendChild(cardFooter)
