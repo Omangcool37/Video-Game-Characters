@@ -151,7 +151,7 @@ const VideoGameCharacters = [
    
 ]
 
-/** Build cards **/
+
 const row = document.getElementById('row')
 
 const makeList =(el, arr)=> {
@@ -180,8 +180,7 @@ const makeList =(el, arr)=> {
 const buildCards =(obj)=> {
 
 
-    //make sure that row is empty
-    // row.innerHTML = ''
+   
 
     const column = document.createElement('div')
     column.classList.add('col')
@@ -237,17 +236,7 @@ const buildCards =(obj)=> {
         makeList(rivalsList, obj.rivals)
     }
 
-    // obj.rivals.forEach(rival => {
-    //     const li = document.createElement('li')
-    //     li.classList.add('list-group-item', 'text-capitalize')
-
-    //     li.innerText = rival 
-
-    //     rivalsList.appendChild(li)
-    // })
-
-    /**appendChild here!! */
-
+   
     const cardFooter = document.createElement('div')
     cardFooter.classList.add('card-footer')
 
@@ -258,8 +247,7 @@ const buildCards =(obj)=> {
 
     cardHeader.appendChild(alias)
     cardHeader.appendChild(heroName)
-    // append more children here to cardBody 
-
+   
     card.appendChild(cardHeader)
 
     cardBody.appendChild(powersLabel)
@@ -279,10 +267,6 @@ const buildCards =(obj)=> {
 
 }
 
-// buildCards(heroes[0])
-
-// Abstract forEach loop
-// heroes.forEach(hero => buildCards(hero))
 
 const loadCards =(arr)=> {
     arr.forEach(item => buildCards(item))
@@ -290,19 +274,14 @@ const loadCards =(arr)=> {
 
 const loadBtn = document.getElementById('loadBtn')
 
-/**
- * document.addEventListener(event, callBack function)
- */
+
 loadBtn.addEventListener('click', (e)=> {
     e.preventDefault()
     row.innerHTML = ''
 
     const filter = document.getElementById('filter').value 
 
-    //Object.keys(obj) => return an array of the keys of an object
-    //Object.values(obj) => returns an array of the values of an object
-
-    //arr.includes(item) => returns a boolean if item is in arr
+   
 
     let cards = VideoGameCharacters.filter(VideoGameCharacters => Object.values(VideoGameCharacters).includes(filter))
 
@@ -314,19 +293,6 @@ loadBtn.addEventListener('click', (e)=> {
 })
 
 
-/**
- * arr.filter() => return a copy array after an original array has been filtered through
- */
 
-
-/*
-
-DECLARATIVE!
-let dcHeroes = []
-
-for (let hero of heroes) {
-    if (hero.franchise == 'dc') {
-        dcHeroes = [...dcHeroes, hero]
-    }
 }
 */
