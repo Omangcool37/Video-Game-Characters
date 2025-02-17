@@ -1,6 +1,8 @@
 /**
- * name, alias, powers [], franchise, team [], alignment bool, enemies [], species
+ * name, alias, powers [], franchise, team [], alignment bool, foes[], species
  */
+
+
 
 const VideoGameCharacters = [
     {
@@ -11,7 +13,7 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        enimies: ['vergil sparda', 'mundus', 'nightmare', 'griffon'],
+        foes: ['vergil sparda', 'mundus', 'nightmare', 'griffon', 'nero'],
         race: 'hybrid',
         firstApp: new Date('August 23, 2001')
     },
@@ -23,7 +25,7 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        enimies: ['dante sparda', 'mundus', 'griffon', 'nightmare'],
+        foes: ['dante sparda', 'mundus', 'griffon', 'nightmare', 'nero'],
         species: 'hybrid',
         firstApp: new Date('August 23, 2001')
     },
@@ -35,8 +37,8 @@ const VideoGameCharacters = [
         franchise: 'capcom',
         team: ['devil may cry'],
         alignment: true,
-        enimies: ['dante sparda', 'mundus', 'griffon', 'nightmare', 'vergil sparda'],
-        race: 'hybrid',
+        foes: ['dante sparda', 'mundus', 'griffon', 'nightmare', 'vergil sparda'],
+        foes: 'hybrid',
         firstApp: new Date('January 31, 2008')
     },
     {
@@ -47,7 +49,7 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        enimies: ['hive','scorn','taken','the vex', 'dread', 'the witness'],
+        foes: ['hive','scorn','taken','the vex', 'dread', 'the witness'],
         race: 'human',
         firstApp: new Date('September 9, 2014')
     },
@@ -59,7 +61,7 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        enimies: ['hive', 'scorn','taken', 'the vex', 'dread', 'the witness'],
+        foes: ['hive', 'scorn','taken', 'the vex', 'dread', 'the witness'],
         race: 'human',
         firstApp: new Date('September 9, 2014')
     },
@@ -71,7 +73,7 @@ const VideoGameCharacters = [
         franchise: 'destiny',
         team: ['the vangaurd'],
         alignment: true,
-        enimies: ['hive', 'scorn','taken','the vex', 'dread', 'the witness'],
+        foes: ['hive', 'scorn','taken','the vex', 'dread', 'the witness'],
         race: 'human',
         firstApp: new Date('September 9, 2014')
         
@@ -84,7 +86,7 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        enimies: ['the templar order'],
+        foes: ['the templar order'],
         race: 'human',
         firstApp: new Date('December 4, 2012')
     },
@@ -96,7 +98,7 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        enimies: ['the templar order'],
+        foes: ['the templar order'],
         race: 'human',
         firstApp: new Date('November 13, 2007')
     },
@@ -108,7 +110,7 @@ const VideoGameCharacters = [
         franchise: 'assassins creed',
         team: ['the brotherhood'],
         alignment: true,
-        enimies: ['the templar order'],
+        foes: ['the templar order'],
         race: 'human',
         firstApp: new Date('October 26, 2009')
     },
@@ -120,7 +122,7 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['the nine realms'],
         alignment: true,
-        enimies: ['zeus', 'ares','poseidon', 'apollo', 'hades' ],
+        foes: ['zeus', 'ares','poseidon', 'apollo', 'hades' ],
         race: 'god',
         firstApp: new Date('March 22, 2005')
     },
@@ -132,7 +134,7 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['the nine realms'],
         alignment: true,
-        enimies: ['heimdoll','dragur','dark elves'],
+        foes: ['heimdoll','dragur','dark elves'],
         race: 'god',
         firstApp: new Date('April 20, 2018')
     },
@@ -144,7 +146,7 @@ const VideoGameCharacters = [
         franchise: 'god of war',
         team: ['asgard'],
         alignment: true,
-        enimies: ['freya', 'kratos','jotnar'],
+        foes: ['freya', 'kratos','jotnar'],
         race: 'god',
         firstApp: new Date('April 20, 2018')
     },
@@ -180,8 +182,6 @@ const makeList =(el, arr)=> {
 const buildCards =(obj)=> {
 
 
-   
-
     const column = document.createElement('div')
     column.classList.add('col')
 
@@ -199,9 +199,9 @@ const buildCards =(obj)=> {
     alias.classList.add('text-capitalize')
     alias.innerText = obj.alias
 
-    const heroName = document.createElement('p')
-    heroName.classList.add('text-capitalize', 'fst-italic')
-    heroName.innerText = obj.name
+    const videogamecharactersName = document.createElement('p')
+    videogamecharactersName.classList.add('text-capitalize', 'fst-italic')
+    videogamecharactersName.innerText = obj.name
 
     const powersLabel = document.createElement('h3')
     powersLabel.classList.add('text-capitalize', 'text-danger')
@@ -225,15 +225,15 @@ const buildCards =(obj)=> {
         makeList(teamsList, obj.team)
     }
 
-    const enimiesLabel = document.createElement('h3')
-    enimiesLabel.classList.add('text-capitalize', 'text-primary')
-    enimiesLabel.innerText = 'enimies'
+    const foesLabel = document.createElement('h3')
+    foesLabel.classList.add('text-capitalize', 'text-primary')
+    foesLabel.innerText = 'enimies'
 
-    const enimiesList = document.createElement('ul')
-    enimiesList.classList.add('list-group', 'list-group-flush')
+    const foesList = document.createElement('ul')
+    foesList.classList.add('list-group', 'list-group-flush')
 
-    if (typeof(obj.enimies) === 'object') {
-        makeList(enimiesList, obj.eniemies)
+    if (typeof(obj.foes) === 'object') {
+        makeList(foesList, obj.foes)
     }
 
    
@@ -246,7 +246,7 @@ const buildCards =(obj)=> {
         <p class="card-text">First App: ${obj.firstApp.getMonth() +1 }/${obj.firstApp.getFullYear()}</p`
 
     cardHeader.appendChild(alias)
-    cardHeader.appendChild(videocharacterName)
+    cardHeader.appendChild(videogamecharactersName)
    
     card.appendChild(cardHeader)
 
@@ -256,8 +256,8 @@ const buildCards =(obj)=> {
     cardBody.appendChild(teamsLabel)
     cardBody.appendChild(teamsList)
 
-    cardBody.appendChild(enimiesLabel)
-    cardBody.appendChild(enimiesList)
+    cardBody.appendChild(foesLabel)
+    cardBody.appendChild(foesList)
 
     card.appendChild(cardBody)
     card.appendChild(cardFooter)
@@ -275,7 +275,7 @@ const loadCards =(arr)=> {
 const loadBtn = document.getElementById('loadBtn')
 
 
-loadBtn.addEventListener('click', (e)=> {
+loadBtn.addEventListener('click', (e)=>  {
     e.preventDefault()
     row.innerHTML = ''
 
@@ -290,9 +290,17 @@ loadBtn.addEventListener('click', (e)=> {
     
 
     loadCards(cards)
-})
-
+}) 
 
 
 }
+
+
+
+
+
+
+
+
+
 
